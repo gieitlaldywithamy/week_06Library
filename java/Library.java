@@ -34,13 +34,15 @@ public class Library {
 //        genreCount.put(key, genreCount.get(key) + 1);
 //        HashMap<String, Integer> genreCount = new HashMap<String, Integer>();
         for (Book book: catalogue){
-            String genre = book.getGenre();
-            if (genreCount.containsKey(genre)){
-                int count = genreCount.get(genre) + 1;
-                genreCount.replace(genre, count);
-            } else {
-                genreCount.put(genre, 1);
-            }
+//            genreCount.put(book.getGenre(), genreCount.get(book.getGenre()) + 1);
+            genreCount.put(book.getGenre(), genreCount.getOrDefault(book.getGenre(), 1) + 1);
+//            String genre = book.getGenre();
+//            if (genreCount.containsKey(genre)){
+//                int count = genreCount.get(genre) + 1;
+//                genreCount.replace(genre, count);
+//            } else {
+//                genreCount.put(genre, 1);
+//            }
         }
         return genreCount;
     }
